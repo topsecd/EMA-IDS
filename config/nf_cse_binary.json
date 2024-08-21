@@ -1,0 +1,46 @@
+{
+    // data
+    "root": "datasets", //data/data268894
+    "ds_name": "NF-CSE-CIC-IDS2018-v2_graph_binary",
+    "batch_size": 30000,
+    "num_workers": 0,
+    // pytorch
+    "num_neighbors": 15,
+    //dgl
+    "fanouts": [15],
+
+    // model
+    "in_channels": 8,
+    "edge_dim": 39,
+    "hidden_channels": 64,
+    "out_channels": 128,
+    "num_labels": 2,
+    "learning_rate": 0.001,
+    "class_weight": "1-1",
+
+    //HAD Concat L1 L2
+    "operator": "Concat",
+    // all edgeconv magnn
+    "ablation": "edgeconv",
+    // dgl_emagnn emagnn
+    "gnn_type": "dgl_emagnn",
+
+    //node
+    "node_dropout": 0.2,
+    "node_k": 3,
+    "global_attn":1,
+    "num_heads": 2,
+    //edge
+    "edgeconv_l": 1,
+    "edge_dropout": 0.2,
+
+    // trainer
+    "seed": 2024,
+    "name": "nf_cse_binary",
+    "checkpoint_dir": "./models",
+    "top_k": 2,
+    "max_epochs": 500,
+    "metric": "val_acc",
+    "patience": 30,
+    "mode": "max"
+}
